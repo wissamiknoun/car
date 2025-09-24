@@ -1,21 +1,34 @@
 #include <Arduino.h>
 #include "BluetoothSerial.h"
 
-
 BluetoothSerial SerialBT;
 
 String cmd = "";
 
-// Moteur A 
-int enA = 25;
-int in1 = 5;
-int in2 = 17;
+// Moteur 1
+int enA1 = 14;
+int in11 = 27;
+int in21 = 26;
+
+// Moteur 2
+int in31 = 25;
+int in41 = 23;
+int enB1 = 32;
+
+// Moteur 4
+int enA2 = 21;
+int in12 = 19;
+int in22 = 18;
+
+// Moteur 3
+int in32 = 5;
+int in42 = 17;
+int enB2 = 16;
 
 // Vitesse normale et turbo
 bool turboMode = false;
-int vitesseNormale = 80;
+int vitesseNormale = 191;
 int vitesseTurbo = 255;
-int vitesse = vitesseNormale;
 
 void setup() {
   
@@ -24,58 +37,148 @@ void setup() {
   Serial.println("Bluetooth prêt !");
 
   // Broches moteur en sortie
-  pinMode(enA, OUTPUT);
-  pinMode(in1, OUTPUT);
-  pinMode(in2, OUTPUT);
+  //Driver 1
+  pinMode(enA1, OUTPUT);
+  pinMode(in11, OUTPUT);
+  pinMode(in21, OUTPUT);
+  pinMode(in31, OUTPUT);
+  pinMode(in41, OUTPUT);
+  pinMode(enB1, OUTPUT);
+
+  //Driver 2
+  pinMode(enA2, OUTPUT);
+  pinMode(in12, OUTPUT);
+  pinMode(in22, OUTPUT);
+  pinMode(in32, OUTPUT);
+  pinMode(in42, OUTPUT);
+  pinMode(enB2, OUTPUT);
 
   // Initialement arrêtés
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, LOW);
+  //Driver 1
+  digitalWrite(in11, LOW);
+  digitalWrite(in21, LOW);
+  digitalWrite(in31, LOW);
+  digitalWrite(in41, LOW);
   
-  ledcAttachPin(enA, 0); // configurer PWM
-  ledcSetup(0, 1000, 8); // canal 0, 1kHz, 8-bit (virtual PMW generator)
-  ledcWrite(0, 0);
+  //Driver 2
+  digitalWrite(in12, LOW);
+  digitalWrite(in22, LOW);
+  digitalWrite(in32, LOW);
+  digitalWrite(in42, LOW);
+
+  // configurer PWM
+  ledcAttachPin(enA1, 1); 
+  ledcSetup(1, 1000, 8); // canal 0, 1kHz, 8-bit (virtual PMW generator)
+  ledcWrite(1, 0);
+
+  ledcAttachPin(enB1, 2);
+  ledcSetup(2, 1000, 8);
+  ledcWrite(2, 0);
+
+  ledcAttachPin(enA2, 3);
+  ledcSetup(3, 1000, 8);
+  ledcWrite(3, 0);
+
+  ledcAttachPin(enB2, 4);
+  ledcSetup(4, 1000, 8);
+  ledcWrite(4, 0);
+
 }
 
-void turbo()
-{
-  vitesse = vitesseTurbo;
-  delay (5000);
-  vitesse = vitesseNormale;
+void stopCar() {
+  // Arrête tous les moteurs
+  digitalWrite(in11, LOW);
+  digitalWrite(in21, LOW);
+  digitalWrite(in31, LOW);
+  digitalWrite(in41, LOW);
+
+  digitalWrite(in12, LOW);
+  digitalWrite(in22, LOW);
+  digitalWrite(in32, LOW);
+  digitalWrite(in42, LOW);
+
+  ledcWrite(1, 0);
+  ledcWrite(2, 0);
+  ledcWrite(3, 0);
+  ledcWrite(4, 0);
 }
- 
-void avancer(bool turboMode) {
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
-  if (turboMode == true)
-   turbo();
-  ledcWrite(0, vitesse);
+
+void avancer() {
+  // Driver 1
+  digitalWrite(in11, HIGH);
+  digitalWrite(in21, LOW);
+  digitalWrite(in31, HIGH);
+  digitalWrite(in41, LOW);
+
+  // Driver 2
+  digitalWrite(in12, HIGH);
+  digitalWrite(in22, LOW);
+  digitalWrite(in32, HIGH);
+  digitalWrite(in42, LOW);
+
+  ledcWrite(1, vitesseNormale);
+  ledcWrite(2, vitesseNormale);
+  ledcWrite(3, vitesseNormale);
+  ledcWrite(4, vitesseNormale);
 }
 
 void reculer() {
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);
-  int vitesse = turboMode ? vitesseTurbo : vitesseNormale;
-  ledcWrite(0, vitesse);
+  // Driver 1
+  digitalWrite(in11, LOW);
+  digitalWrite(in21, HIGH);
+  digitalWrite(in31, LOW);
+  digitalWrite(in41, HIGH);
+
+  // Driver 2
+  digitalWrite(in12, LOW);
+  digitalWrite(in22, HIGH);
+  digitalWrite(in32, LOW);
+  digitalWrite(in42, HIGH);
+
+  ledcWrite(1, vitesseNormale);
+  ledcWrite(2, vitesseNormale);
+  ledcWrite(3, vitesseNormale);
+  ledcWrite(4, vitesseNormale);
 }
 
 void gauche() {
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, LOW);
-  ledcWrite(0, vitesseNormale);
+  // Moteurs gauche reculent, 
+  digitalWrite(in11, LOW);
+  digitalWrite(in21, HIGH);
+  digitalWrite(in32, LOW);
+  digitalWrite(in42, HIGH);
+
+  //moteurs droite avancent
+  digitalWrite(in12, HIGH);
+  digitalWrite(in22, LOW);
+  digitalWrite(in31, HIGH);
+  digitalWrite(in41, LOW);
+
+  ledcWrite(1, vitesseNormale);
+  ledcWrite(2, vitesseNormale);
+  ledcWrite(3, vitesseNormale);
+  ledcWrite(4, vitesseNormale);
 }
 
 void droite() {
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
-  ledcWrite(0, vitesseNormale);
+  // Moteurs gauche avancent
+  digitalWrite(in11, HIGH);
+  digitalWrite(in21, LOW);
+  digitalWrite(in32, HIGH);
+  digitalWrite(in42, LOW);
+
+  //moteurs droite reculent
+  digitalWrite(in12, LOW);
+  digitalWrite(in22, HIGH);
+  digitalWrite(in31, LOW);
+  digitalWrite(in41, HIGH);
+
+  ledcWrite(1, vitesseNormale);
+  ledcWrite(2, vitesseNormale);
+  ledcWrite(3, vitesseNormale);
+  ledcWrite(4, vitesseNormale);
 }
 
-void stopMoteurs() {
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, LOW);
-  ledcWrite(0, 0);
-}
 
 void loop() {
   while (SerialBT.available() > 0) {
@@ -89,7 +192,7 @@ void loop() {
     Serial.print("Commande reçue : ");
     Serial.println(cmd);
 
-    if (cmd == "avant") avancer(false);
+    if (cmd == "avant") avancer();
    
     else if (cmd == "arriere") reculer();
    
@@ -97,13 +200,7 @@ void loop() {
    
     else if (cmd == "droite") droite();
    
-    else if (cmd == "stop") stopMoteurs();
-   
-    else if (cmd == "turbo") {
-      turboMode = true;
-      Serial.println("Turbo activé !");
-      avancer(turboMode);
-    }
+    else if (cmd == "stop") stopCar();
 
     cmd = "";
   }
