@@ -181,29 +181,9 @@ void droite() {
 
 
 void loop() {
-  while (SerialBT.available() > 0) {
-    char c = SerialBT.read();
-    if (c == '\n' || c == '\r') break;
-    cmd += c;
-  }
 
-  if (cmd != "") {
-    cmd.trim();  // Nettoie \r \n
-    Serial.print("Commande reçue : ");
-    Serial.println(cmd);
 
-    if (cmd == "avant") avancer();
-   
-    else if (cmd == "arriere") reculer();
-   
-    else if (cmd == "gauche") gauche();
-   
-    else if (cmd == "droite") droite();
-   
-    else if (cmd == "stop") stopCar();
-
-    cmd = "";
-  }
+droite();
 
   delay(50);
 }
