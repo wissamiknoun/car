@@ -183,7 +183,7 @@ void droite() {
 void loop() {
 
 
-droite();
+reculer();
 
   delay(50);
 }
