@@ -27,7 +27,7 @@ int enB2 = 16;
 
 // Vitesse normale et turbo
 bool turboMode = false;
-int vitesseNormale = 191;
+int vitesseNormale = 125 ;
 int vitesseTurbo = 255;
 
 void setup() {
