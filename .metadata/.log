@@ -1,0 +1,548 @@
+!SESSION 2026-02-11 16:48:31.900 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.6
+java.vendor=Amazon.com Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.launchbar.core 2 0 2026-02-11 17:03:16.989
+!MESSAGE Enablement expression is missing for descriptor type com.espressif.idf.debug.gdbjtag.openocd.descriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2026-02-11 17:03:16.995
+!MESSAGE Enablement expression is missing for config provider for com.espressif.idf.debug.gdbjtag.openocd.descriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2026-02-11 17:03:16.996
+!MESSAGE Enablement expression is missing for config provider for com.espressif.idf.launch.serial.core.idf.descriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2026-02-11 17:03:16.997
+!MESSAGE Enablement expression is missing for descriptor type com.espressif.idf.launch.serial.core.idf.descriptorType
+
+!ENTRY org.eclipse.egit.ui 2 0 2026-02-11 17:03:17.016
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WissamIKNOUN'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:18.182
+!MESSAGE Initializing toolchain...
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:18.183
+!MESSAGE idf_tools.py path: null/tools/idf_tools.py
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:18.183
+!MESSAGE idf_tools.py path doesn't exist
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:18.184
+!MESSAGE [D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Logiciels\Git\cmd;C:\Users\WissamIKNOUN\AppData\Local\Arduino15\staging\libraries\Bluepad32_for_NINA_W10_boards-1.3.5\Bluepad32_for_NINA_W10_boards-1.3.5\src;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\bison\bin;C:\Program Files (x86)\GnuWin32\bin;D:\Logiciels\CodeBlocks\MinGW\bin;C:\Users\WissamIKNOUN\AppData\Local\Programs\Python\Launcher\;C:\Users\WissamIKNOUN\AppData\Local\Microsoft\WindowsApps;D:\Logiciels\Microsoft VS Code\bin;]
+
+!ENTRY com.espressif.idf.core 4 0 2026-02-11 17:03:18.187
+!MESSAGE D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+!STACK 0
+java.nio.file.NotDirectoryException: D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+	at java.base/sun.nio.fs.WindowsDirectoryStream.<init>(WindowsDirectoryStream.java:84)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newDirectoryStream(WindowsFileSystemProvider.java:535)
+	at java.base/java.nio.file.Files.newDirectoryStream(Files.java:482)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findMatchingFile(ESPToolChainManager.java:186)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findToolChain(ESPToolChainManager.java:168)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.initToolChain(ESPToolChainManager.java:136)
+	at com.espressif.idf.core.toolchain.ESPToolChainProvider.init(ESPToolChainProvider.java:36)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.lambda$0(ToolChainManager.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.init(ToolChainManager.java:64)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.getAllToolChains(ToolChainManager.java:206)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.getAllEspToolchains(ESPToolChainManager.java:427)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.addToolchainBasedTargets(ESPToolChainManager.java:440)
+	at com.espressif.idf.launch.serial.SerialFlashLaunchTargetProvider.init(SerialFlashLaunchTargetProvider.java:33)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.initTargets(LaunchTargetManager.java:123)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getProvider(LaunchTargetManager.java:130)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getStatus(LaunchTargetManager.java:191)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.setToolTipText(TargetSelector.java:217)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.update(TargetSelector.java:248)
+	at org.eclipse.launchbar.ui.controls.internal.CSelector.lambda$6(CSelector.java:468)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1454)
+
+!ENTRY com.espressif.idf.core 4 0 2026-02-11 17:03:18.300
+!MESSAGE D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+!STACK 0
+java.nio.file.NotDirectoryException: D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+	at java.base/sun.nio.fs.WindowsDirectoryStream.<init>(WindowsDirectoryStream.java:84)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newDirectoryStream(WindowsFileSystemProvider.java:535)
+	at java.base/java.nio.file.Files.newDirectoryStream(Files.java:482)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findMatchingFile(ESPToolChainManager.java:186)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findToolChain(ESPToolChainManager.java:168)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.initToolChain(ESPToolChainManager.java:136)
+	at com.espressif.idf.core.toolchain.ESPToolChainProvider.init(ESPToolChainProvider.java:36)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.lambda$0(ToolChainManager.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.init(ToolChainManager.java:64)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.getAllToolChains(ToolChainManager.java:206)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.getAllEspToolchains(ESPToolChainManager.java:427)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.addToolchainBasedTargets(ESPToolChainManager.java:440)
+	at com.espressif.idf.launch.serial.SerialFlashLaunchTargetProvider.init(SerialFlashLaunchTargetProvider.java:33)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.initTargets(LaunchTargetManager.java:123)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getProvider(LaunchTargetManager.java:130)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getStatus(LaunchTargetManager.java:191)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.setToolTipText(TargetSelector.java:217)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.update(TargetSelector.java:248)
+	at org.eclipse.launchbar.ui.controls.internal.CSelector.lambda$6(CSelector.java:468)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1454)
+
+!ENTRY com.espressif.idf.core 4 0 2026-02-11 17:03:18.416
+!MESSAGE D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+!STACK 0
+java.nio.file.NotDirectoryException: D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+	at java.base/sun.nio.fs.WindowsDirectoryStream.<init>(WindowsDirectoryStream.java:84)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newDirectoryStream(WindowsFileSystemProvider.java:535)
+	at java.base/java.nio.file.Files.newDirectoryStream(Files.java:482)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findMatchingFile(ESPToolChainManager.java:186)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findToolChain(ESPToolChainManager.java:168)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.initToolChain(ESPToolChainManager.java:136)
+	at com.espressif.idf.core.toolchain.ESPToolChainProvider.init(ESPToolChainProvider.java:36)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.lambda$0(ToolChainManager.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.init(ToolChainManager.java:64)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.getAllToolChains(ToolChainManager.java:206)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.getAllEspToolchains(ESPToolChainManager.java:427)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.addToolchainBasedTargets(ESPToolChainManager.java:440)
+	at com.espressif.idf.launch.serial.SerialFlashLaunchTargetProvider.init(SerialFlashLaunchTargetProvider.java:33)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.initTargets(LaunchTargetManager.java:123)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getProvider(LaunchTargetManager.java:130)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getStatus(LaunchTargetManager.java:191)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.setToolTipText(TargetSelector.java:217)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.update(TargetSelector.java:248)
+	at org.eclipse.launchbar.ui.controls.internal.CSelector.lambda$6(CSelector.java:468)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1454)
+
+!ENTRY com.espressif.idf.core 4 0 2026-02-11 17:03:18.513
+!MESSAGE D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+!STACK 0
+java.nio.file.NotDirectoryException: D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+	at java.base/sun.nio.fs.WindowsDirectoryStream.<init>(WindowsDirectoryStream.java:84)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newDirectoryStream(WindowsFileSystemProvider.java:535)
+	at java.base/java.nio.file.Files.newDirectoryStream(Files.java:482)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findMatchingFile(ESPToolChainManager.java:186)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findToolChain(ESPToolChainManager.java:168)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.initToolChain(ESPToolChainManager.java:136)
+	at com.espressif.idf.core.toolchain.ESPToolChainProvider.init(ESPToolChainProvider.java:36)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.lambda$0(ToolChainManager.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.init(ToolChainManager.java:64)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.getAllToolChains(ToolChainManager.java:206)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.getAllEspToolchains(ESPToolChainManager.java:427)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.addToolchainBasedTargets(ESPToolChainManager.java:440)
+	at com.espressif.idf.launch.serial.SerialFlashLaunchTargetProvider.init(SerialFlashLaunchTargetProvider.java:33)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.initTargets(LaunchTargetManager.java:123)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getProvider(LaunchTargetManager.java:130)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getStatus(LaunchTargetManager.java:191)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.setToolTipText(TargetSelector.java:217)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.update(TargetSelector.java:248)
+	at org.eclipse.launchbar.ui.controls.internal.CSelector.lambda$6(CSelector.java:468)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1454)
+
+!ENTRY com.espressif.idf.core 4 0 2026-02-11 17:03:18.600
+!MESSAGE D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+!STACK 0
+java.nio.file.NotDirectoryException: D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+	at java.base/sun.nio.fs.WindowsDirectoryStream.<init>(WindowsDirectoryStream.java:84)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newDirectoryStream(WindowsFileSystemProvider.java:535)
+	at java.base/java.nio.file.Files.newDirectoryStream(Files.java:482)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findMatchingFile(ESPToolChainManager.java:186)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findToolChain(ESPToolChainManager.java:168)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.initToolChain(ESPToolChainManager.java:136)
+	at com.espressif.idf.core.toolchain.ESPToolChainProvider.init(ESPToolChainProvider.java:36)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.lambda$0(ToolChainManager.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.init(ToolChainManager.java:64)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.getAllToolChains(ToolChainManager.java:206)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.getAllEspToolchains(ESPToolChainManager.java:427)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.addToolchainBasedTargets(ESPToolChainManager.java:440)
+	at com.espressif.idf.launch.serial.SerialFlashLaunchTargetProvider.init(SerialFlashLaunchTargetProvider.java:33)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.initTargets(LaunchTargetManager.java:123)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getProvider(LaunchTargetManager.java:130)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getStatus(LaunchTargetManager.java:191)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.setToolTipText(TargetSelector.java:217)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.update(TargetSelector.java:248)
+	at org.eclipse.launchbar.ui.controls.internal.CSelector.lambda$6(CSelector.java:468)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1454)
+
+!ENTRY com.espressif.idf.core 4 0 2026-02-11 17:03:18.686
+!MESSAGE D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+!STACK 0
+java.nio.file.NotDirectoryException: D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+	at java.base/sun.nio.fs.WindowsDirectoryStream.<init>(WindowsDirectoryStream.java:84)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newDirectoryStream(WindowsFileSystemProvider.java:535)
+	at java.base/java.nio.file.Files.newDirectoryStream(Files.java:482)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findMatchingFile(ESPToolChainManager.java:186)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findToolChain(ESPToolChainManager.java:168)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.initToolChain(ESPToolChainManager.java:136)
+	at com.espressif.idf.core.toolchain.ESPToolChainProvider.init(ESPToolChainProvider.java:36)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.lambda$0(ToolChainManager.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.init(ToolChainManager.java:64)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.getAllToolChains(ToolChainManager.java:206)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.getAllEspToolchains(ESPToolChainManager.java:427)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.addToolchainBasedTargets(ESPToolChainManager.java:440)
+	at com.espressif.idf.launch.serial.SerialFlashLaunchTargetProvider.init(SerialFlashLaunchTargetProvider.java:33)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.initTargets(LaunchTargetManager.java:123)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getProvider(LaunchTargetManager.java:130)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getStatus(LaunchTargetManager.java:191)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.setToolTipText(TargetSelector.java:217)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.update(TargetSelector.java:248)
+	at org.eclipse.launchbar.ui.controls.internal.CSelector.lambda$6(CSelector.java:468)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1454)
+
+!ENTRY com.espressif.idf.core 4 0 2026-02-11 17:03:18.774
+!MESSAGE D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+!STACK 0
+java.nio.file.NotDirectoryException: D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+	at java.base/sun.nio.fs.WindowsDirectoryStream.<init>(WindowsDirectoryStream.java:84)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newDirectoryStream(WindowsFileSystemProvider.java:535)
+	at java.base/java.nio.file.Files.newDirectoryStream(Files.java:482)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findMatchingFile(ESPToolChainManager.java:186)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findToolChain(ESPToolChainManager.java:168)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.initToolChain(ESPToolChainManager.java:136)
+	at com.espressif.idf.core.toolchain.ESPToolChainProvider.init(ESPToolChainProvider.java:36)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.lambda$0(ToolChainManager.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.init(ToolChainManager.java:64)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.getAllToolChains(ToolChainManager.java:206)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.getAllEspToolchains(ESPToolChainManager.java:427)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.addToolchainBasedTargets(ESPToolChainManager.java:440)
+	at com.espressif.idf.launch.serial.SerialFlashLaunchTargetProvider.init(SerialFlashLaunchTargetProvider.java:33)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.initTargets(LaunchTargetManager.java:123)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getProvider(LaunchTargetManager.java:130)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getStatus(LaunchTargetManager.java:191)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.setToolTipText(TargetSelector.java:217)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.update(TargetSelector.java:248)
+	at org.eclipse.launchbar.ui.controls.internal.CSelector.lambda$6(CSelector.java:468)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1454)
+
+!ENTRY com.espressif.idf.core 4 0 2026-02-11 17:03:18.879
+!MESSAGE D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+!STACK 0
+java.nio.file.NotDirectoryException: D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe
+	at java.base/sun.nio.fs.WindowsDirectoryStream.<init>(WindowsDirectoryStream.java:84)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newDirectoryStream(WindowsFileSystemProvider.java:535)
+	at java.base/java.nio.file.Files.newDirectoryStream(Files.java:482)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findMatchingFile(ESPToolChainManager.java:186)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findToolChain(ESPToolChainManager.java:168)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.initToolChain(ESPToolChainManager.java:136)
+	at com.espressif.idf.core.toolchain.ESPToolChainProvider.init(ESPToolChainProvider.java:36)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.lambda$0(ToolChainManager.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.init(ToolChainManager.java:64)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.getAllToolChains(ToolChainManager.java:206)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.getAllEspToolchains(ESPToolChainManager.java:427)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.addToolchainBasedTargets(ESPToolChainManager.java:440)
+	at com.espressif.idf.launch.serial.SerialFlashLaunchTargetProvider.init(SerialFlashLaunchTargetProvider.java:33)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.initTargets(LaunchTargetManager.java:123)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getProvider(LaunchTargetManager.java:130)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getStatus(LaunchTargetManager.java:191)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.setToolTipText(TargetSelector.java:217)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.update(TargetSelector.java:248)
+	at org.eclipse.launchbar.ui.controls.internal.CSelector.lambda$6(CSelector.java:468)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1454)
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:18.991
+!MESSAGE Eclipse Install location::file:/D:/Logiciels/Espressif/tools/espressif-ide/3.1.0/
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:19.062
+!MESSAGE Executing D:/Logiciels/Espressif/python_env/idf5.3_py3.11_env/Scripts/python.exe D:\Logiciels\Espressif\frameworks\esp-idf-v5.3.1\tools\idf_tools.py export --format=key-value
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:20.465
+!MESSAGE Key: OPENOCD_SCRIPTS Value: D:\Logiciels\Espressif\tools\openocd-esp32\v0.12.0-esp32-20240318\openocd-esp32\share\openocd\scripts
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:20.466
+!MESSAGE Key: IDF_CCACHE_ENABLE Value: 1
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:20.466
+!MESSAGE Key: ESP_ROM_ELF_DIR Value: D:\Logiciels\Espressif\tools\esp-rom-elfs\20240305\
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:20.466
+!MESSAGE Key: IDF_PYTHON_ENV_PATH Value: D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:20.466
+!MESSAGE Key: ESP_IDF_VERSION Value: 5.3
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:20.467
+!MESSAGE Key: PATH Value: D:\Logiciels\Espressif\tools\xtensa-esp-elf-gdb\14.2_20240403\xtensa-esp-elf-gdb\bin;D:\Logiciels\Espressif\tools\riscv32-esp-elf-gdb\14.2_20240403\riscv32-esp-elf-gdb\bin;D:\Logiciels\Espressif\tools\xtensa-esp-elf\esp-13.2.0_20240530\xtensa-esp-elf\bin;D:\Logiciels\Espressif\tools\esp-clang\16.0.1-fe4f10a809\esp-clang\bin;D:\Logiciels\Espressif\tools\riscv32-esp-elf\esp-13.2.0_20240530\riscv32-esp-elf\bin;D:\Logiciels\Espressif\tools\esp32ulp-elf\2.38_20240113\esp32ulp-elf\bin;D:\Logiciels\Espressif\tools\cmake\3.24.0\bin;D:\Logiciels\Espressif\tools\openocd-esp32\v0.12.0-esp32-20240318\openocd-esp32\bin;D:\Logiciels\Espressif\tools\ninja\1.11.1\;D:\Logiciels\Espressif\tools\idf-exe\1.0.3\;D:\Logiciels\Espressif\tools\ccache\4.8\ccache-4.8-windows-x86_64;D:\Logiciels\Espressif\tools\dfu-util\0.11\dfu-util-0.11-win64;D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts;D:\Logiciels\Espressif\frameworks\esp-idf-v5.3.1\tools;%PATH%
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:20.467
+!MESSAGE Key: IDF_DEACTIVATE_FILE_PATH Value: C:\Users\WISSAM~1\AppData\Local\Temp\tmpvgsno_23idf_7832
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:20.468
+!MESSAGE Executing D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env/Scripts/python.exe D:\Logiciels\Espressif\frameworks\esp-idf-v5.3.1\tools\idf.py --version
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:20.469
+!MESSAGE {USERDOMAIN_ROAMINGPROFILE=WISSAMIKNOUN, LOCALAPPDATA=C:\Users\WissamIKNOUN\AppData\Local, PROCESSOR_LEVEL=6, USERDOMAIN=WISSAMIKNOUN, FPS_BROWSER_APP_PROFILE_STRING=Internet Explorer, LOGONSERVER=\\WISSAMIKNOUN, SESSIONNAME=Console, ALLUSERSPROFILE=C:\ProgramData, PROCESSOR_ARCHITECTURE=AMD64, PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules, IDF_TOOLS_PATH=D:/Logiciels/Espressif, SystemDrive=C:, OneDrive=C:\Users\wmikn\OneDrive, APPDATA=C:\Users\WissamIKNOUN\AppData\Roaming, USERNAME=wmikn, ProgramFiles(x86)=C:\Program Files (x86), CommonProgramFiles=C:\Program Files\Common Files, Path=D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Logiciels\Git\cmd;C:\Users\WissamIKNOUN\AppData\Local\Arduino15\staging\libraries\Bluepad32_for_NINA_W10_boards-1.3.5\Bluepad32_for_NINA_W10_boards-1.3.5\src;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\bison\bin;C:\Program Files (x86)\GnuWin32\bin;D:\Logiciels\CodeBlocks\MinGW\bin;C:\Users\WissamIKNOUN\AppData\Local\Programs\Python\Launcher\;C:\Users\WissamIKNOUN\AppData\Local\Microsoft\WindowsApps;D:\Logiciels\Microsoft VS Code\bin;, FPS_BROWSER_USER_PROFILE_STRING=Default, PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC, DriverData=C:\Windows\System32\Drivers\DriverData, OS=Windows_NT, COMPUTERNAME=WISSAMIKNOUN, PROCESSOR_REVISION=9a03, CommonProgramW6432=C:\Program Files\Common Files, EFC_8404_1592913036=1, ComSpec=C:\Windows\system32\cmd.exe, ProgramData=C:\ProgramData, ProgramW6432=C:\Program Files, esp-idf=D:\Logiciels\Espressif\frameworks\esp-idf-v5.3.1, HOMEPATH=\Users\WissamIKNOUN, SystemRoot=C:\Windows, TEMP=C:\Users\WISSAM~1\AppData\Local\Temp, HOMEDRIVE=C:, PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 154 Stepping 3, GenuineIntel, USERPROFILE=C:\Users\WissamIKNOUN, TMP=C:\Users\WISSAM~1\AppData\Local\Temp, CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files, ProgramFiles=C:\Program Files, PUBLIC=C:\Users\Public, EFC_8404_2283032206=1, EFC_8404_3789132940=1, NUMBER_OF_PROCESSORS=16, windir=C:\Windows, EFC_8404_2775293581=1, =::=::\, EFC_8404_1262719628=1}
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.099
+!MESSAGE Updating environment variables with key:ESP_IDF_VERSION value:5.3.1
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.103
+!MESSAGE Updating environment variables with key:GIT_PATH value:D:/Logiciels/Espressif/tools/idf-git/2.44.0/cmd/git.exe
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.106
+!MESSAGE Updating environment variables with key:IDF_COMPONENT_MANAGER value:1
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.109
+!MESSAGE Updating environment variables with key:IDF_MAINTAINER value:1
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.111
+!MESSAGE Updating environment variables with key:IDF_PATH value:D:/Logiciels/Espressif/frameworks/esp-idf-v5.3.1/
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.114
+!MESSAGE Updating environment variables with key:IDF_PYTHON_ENV_PATH value:D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.118
+!MESSAGE Updating environment variables with key:OPENOCD_SCRIPTS value:D:\Logiciels\Espressif\tools\openocd-esp32\v0.12.0-esp32-20240318\openocd-esp32\share\openocd\scripts
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.120
+!MESSAGE Updating environment variables with key:PATH value:D:\Logiciels\Espressif\tools\xtensa-esp-elf-gdb\14.2_20240403\xtensa-esp-elf-gdb\bin;D:\Logiciels\Espressif\tools\riscv32-esp-elf-gdb\14.2_20240403\riscv32-esp-elf-gdb\bin;D:\Logiciels\Espressif\tools\xtensa-esp-elf\esp-13.2.0_20240530\xtensa-esp-elf\bin;D:\Logiciels\Espressif\tools\esp-clang\16.0.1-fe4f10a809\esp-clang\bin;D:\Logiciels\Espressif\tools\riscv32-esp-elf\esp-13.2.0_20240530\riscv32-esp-elf\bin;D:\Logiciels\Espressif\tools\esp32ulp-elf\2.38_20240113\esp32ulp-elf\bin;D:\Logiciels\Espressif\tools\cmake\3.24.0\bin;D:\Logiciels\Espressif\tools\openocd-esp32\v0.12.0-esp32-20240318\openocd-esp32\bin;D:\Logiciels\Espressif\tools\ninja\1.11.1\;D:\Logiciels\Espressif\tools\idf-exe\1.0.3\;D:\Logiciels\Espressif\tools\ccache\4.8\ccache-4.8-windows-x86_64;D:\Logiciels\Espressif\tools\dfu-util\0.11\dfu-util-0.11-win64;D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts;D:\Logiciels\Espressif\frameworks\esp-idf-v5.3.1\tools;D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Logiciels\Git\cmd;C:\Users\WissamIKNOUN\AppData\Local\Arduino15\staging\libraries\Bluepad32_for_NINA_W10_boards-1.3.5\Bluepad32_for_NINA_W10_boards-1.3.5\src;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\bison\bin;C:\Program Files (x86)\GnuWin32\bin;D:\Logiciels\CodeBlocks\MinGW\bin;C:\Users\WissamIKNOUN\AppData\Local\Programs\Python\Launcher\;C:\Users\WissamIKNOUN\AppData\Local\Microsoft\WindowsApps;D:\Logiciels\Microsoft VS Code\bin;
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.123
+!MESSAGE Updating environment variables with key:PYTHON_EXE_PATH value:D:/Logiciels/Espressif/python_env/idf5.3_py3.11_env/Scripts/python.exe
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.125
+!MESSAGE Updating environment variables with key:IDF_COMPONENT_MANAGER value:1
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.125
+!MESSAGE Updating environment variables with key:IDF_MAINTAINER value:1
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.127
+!MESSAGE Executing D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env/Scripts/python.exe D:\Logiciels\Espressif\frameworks\esp-idf-v5.3.1\tools\idf.py --list-targets
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:27.127
+!MESSAGE {USERDOMAIN_ROAMINGPROFILE=WISSAMIKNOUN, LOCALAPPDATA=C:\Users\WissamIKNOUN\AppData\Local, PROCESSOR_LEVEL=6, USERDOMAIN=WISSAMIKNOUN, FPS_BROWSER_APP_PROFILE_STRING=Internet Explorer, LOGONSERVER=\\WISSAMIKNOUN, SESSIONNAME=Console, ALLUSERSPROFILE=C:\ProgramData, PROCESSOR_ARCHITECTURE=AMD64, PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules, IDF_TOOLS_PATH=D:/Logiciels/Espressif, SystemDrive=C:, OneDrive=C:\Users\wmikn\OneDrive, APPDATA=C:\Users\WissamIKNOUN\AppData\Roaming, USERNAME=wmikn, ProgramFiles(x86)=C:\Program Files (x86), CommonProgramFiles=C:\Program Files\Common Files, Path=D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Logiciels\Git\cmd;C:\Users\WissamIKNOUN\AppData\Local\Arduino15\staging\libraries\Bluepad32_for_NINA_W10_boards-1.3.5\Bluepad32_for_NINA_W10_boards-1.3.5\src;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\bison\bin;C:\Program Files (x86)\GnuWin32\bin;D:\Logiciels\CodeBlocks\MinGW\bin;C:\Users\WissamIKNOUN\AppData\Local\Programs\Python\Launcher\;C:\Users\WissamIKNOUN\AppData\Local\Microsoft\WindowsApps;D:\Logiciels\Microsoft VS Code\bin;, FPS_BROWSER_USER_PROFILE_STRING=Default, PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC, DriverData=C:\Windows\System32\Drivers\DriverData, OS=Windows_NT, COMPUTERNAME=WISSAMIKNOUN, PROCESSOR_REVISION=9a03, CommonProgramW6432=C:\Program Files\Common Files, EFC_8404_1592913036=1, ComSpec=C:\Windows\system32\cmd.exe, ProgramData=C:\ProgramData, ProgramW6432=C:\Program Files, esp-idf=D:\Logiciels\Espressif\frameworks\esp-idf-v5.3.1, HOMEPATH=\Users\WissamIKNOUN, SystemRoot=C:\Windows, TEMP=C:\Users\WISSAM~1\AppData\Local\Temp, HOMEDRIVE=C:, PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 154 Stepping 3, GenuineIntel, USERPROFILE=C:\Users\WissamIKNOUN, TMP=C:\Users\WISSAM~1\AppData\Local\Temp, CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files, ProgramFiles=C:\Program Files, PUBLIC=C:\Users\Public, EFC_8404_2283032206=1, EFC_8404_3789132940=1, NUMBER_OF_PROCESSORS=16, windir=C:\Windows, EFC_8404_2775293581=1, =::=::\, EFC_8404_1262719628=1}
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:28.440
+!MESSAGE Initializing toolchain...
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:28.441
+!MESSAGE idf_tools.py path: D:/Logiciels/Espressif/frameworks/esp-idf-v5.3.1//tools/idf_tools.py
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:28.441
+!MESSAGE [D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe, D:/Logiciels/Espressif/frameworks/esp-idf-v5.3.1//tools/idf_tools.py, export, --format=key-value]
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:28.909
+!MESSAGE idf_tools.py export output: WARNING: The following issue occurred while accessing the ESP-IDF version file in the Python environment: [Errno 2] No such file or directory: 'D:\\Logiciels\\Espressif\\python_env\\idf5.3_py3.11_env\\idf_version.txt'. (Diagnostic information. It can be ignored.)
+OPENOCD_SCRIPTS=D:\Logiciels\Espressif\tools\openocd-esp32\v0.12.0-esp32-20240318\openocd-esp32\share\openocd\scripts
+IDF_CCACHE_ENABLE=1
+ESP_ROM_ELF_DIR=D:\Logiciels\Espressif\tools\esp-rom-elfs\20240305\
+IDF_PYTHON_ENV_PATH=D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env
+ESP_IDF_VERSION=5.3
+PATH=D:\Logiciels\Espressif\tools\xtensa-esp-elf-gdb\14.2_20240403\xtensa-esp-elf-gdb\bin;D:\Logiciels\Espressif\tools\riscv32-esp-elf-gdb\14.2_20240403\riscv32-esp-elf-gdb\bin;D:\Logiciels\Espressif\tools\xtensa-esp-elf\esp-13.2.0_20240530\xtensa-esp-elf\bin;D:\Logiciels\Espressif\tools\esp-clang\16.0.1-fe4f10a809\esp-clang\bin;D:\Logiciels\Espressif\tools\riscv32-esp-elf\esp-13.2.0_20240530\riscv32-esp-elf\bin;D:\Logiciels\Espressif\tools\esp32ulp-elf\2.38_20240113\esp32ulp-elf\bin;D:\Logiciels\Espressif\tools\cmake\3.24.0\bin;D:\Logiciels\Espressif\tools\openocd-esp32\v0.12.0-esp32-20240318\openocd-esp32\bin;D:\Logiciels\Espressif\tools\ninja\1.11.1\;D:\Logiciels\Espressif\tools\idf-exe\1.0.3\;D:\Logiciels\Espressif\tools\ccache\4.8\ccache-4.8-windows-x86_64;D:\Logiciels\Espressif\tools\dfu-util\0.11\dfu-util-0.11-win64;D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts;D:\Logiciels\Espressif\frameworks\esp-idf-v5.3.1\tools;%PATH%
+IDF_DEACTIVATE_FILE_PATH=C:\Users\WISSAM~1\AppData\Local\Temp\tmpp52zjsazidf_12624
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:28.910
+!MESSAGE PATH: D:\Logiciels\Espressif\tools\xtensa-esp-elf-gdb\14.2_20240403\xtensa-esp-elf-gdb\bin;D:\Logiciels\Espressif\tools\riscv32-esp-elf-gdb\14.2_20240403\riscv32-esp-elf-gdb\bin;D:\Logiciels\Espressif\tools\xtensa-esp-elf\esp-13.2.0_20240530\xtensa-esp-elf\bin;D:\Logiciels\Espressif\tools\esp-clang\16.0.1-fe4f10a809\esp-clang\bin;D:\Logiciels\Espressif\tools\riscv32-esp-elf\esp-13.2.0_20240530\riscv32-esp-elf\bin;D:\Logiciels\Espressif\tools\esp32ulp-elf\2.38_20240113\esp32ulp-elf\bin;D:\Logiciels\Espressif\tools\cmake\3.24.0\bin;D:\Logiciels\Espressif\tools\openocd-esp32\v0.12.0-esp32-20240318\openocd-esp32\bin;D:\Logiciels\Espressif\tools\ninja\1.11.1\;D:\Logiciels\Espressif\tools\idf-exe\1.0.3\;D:\Logiciels\Espressif\tools\ccache\4.8\ccache-4.8-windows-x86_64;D:\Logiciels\Espressif\tools\dfu-util\0.11\dfu-util-0.11-win64;D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts;D:\Logiciels\Espressif\frameworks\esp-idf-v5.3.1\tools;%PATH%
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:28.910
+!MESSAGE [D:\Logiciels\Espressif\tools\xtensa-esp-elf-gdb\14.2_20240403\xtensa-esp-elf-gdb\bin;D:\Logiciels\Espressif\tools\riscv32-esp-elf-gdb\14.2_20240403\riscv32-esp-elf-gdb\bin;D:\Logiciels\Espressif\tools\xtensa-esp-elf\esp-13.2.0_20240530\xtensa-esp-elf\bin;D:\Logiciels\Espressif\tools\esp-clang\16.0.1-fe4f10a809\esp-clang\bin;D:\Logiciels\Espressif\tools\riscv32-esp-elf\esp-13.2.0_20240530\riscv32-esp-elf\bin;D:\Logiciels\Espressif\tools\esp32ulp-elf\2.38_20240113\esp32ulp-elf\bin;D:\Logiciels\Espressif\tools\cmake\3.24.0\bin;D:\Logiciels\Espressif\tools\openocd-esp32\v0.12.0-esp32-20240318\openocd-esp32\bin;D:\Logiciels\Espressif\tools\ninja\1.11.1\;D:\Logiciels\Espressif\tools\idf-exe\1.0.3\;D:\Logiciels\Espressif\tools\ccache\4.8\ccache-4.8-windows-x86_64;D:\Logiciels\Espressif\tools\dfu-util\0.11\dfu-util-0.11-win64;D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts;D:\Logiciels\Espressif\frameworks\esp-idf-v5.3.1\tools;%PATH%]
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:28.984
+!MESSAGE Executing D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env/Scripts/python.exe -m pip list
+
+!ENTRY com.espressif.idf.core 1 0 2026-02-11 17:03:28.985
+!MESSAGE {USERDOMAIN_ROAMINGPROFILE=WISSAMIKNOUN, LOCALAPPDATA=C:\Users\WissamIKNOUN\AppData\Local, PROCESSOR_LEVEL=6, USERDOMAIN=WISSAMIKNOUN, FPS_BROWSER_APP_PROFILE_STRING=Internet Explorer, LOGONSERVER=\\WISSAMIKNOUN, SESSIONNAME=Console, ALLUSERSPROFILE=C:\ProgramData, PROCESSOR_ARCHITECTURE=AMD64, PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules, IDF_TOOLS_PATH=D:/Logiciels/Espressif, SystemDrive=C:, OneDrive=C:\Users\wmikn\OneDrive, APPDATA=C:\Users\WissamIKNOUN\AppData\Roaming, USERNAME=wmikn, ProgramFiles(x86)=C:\Program Files (x86), CommonProgramFiles=C:\Program Files\Common Files, Path=D:\Logiciels\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Logiciels\Git\cmd;C:\Users\WissamIKNOUN\AppData\Local\Arduino15\staging\libraries\Bluepad32_for_NINA_W10_boards-1.3.5\Bluepad32_for_NINA_W10_boards-1.3.5\src;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\bison\bin;C:\Program Files (x86)\GnuWin32\bin;D:\Logiciels\CodeBlocks\MinGW\bin;C:\Users\WissamIKNOUN\AppData\Local\Programs\Python\Launcher\;C:\Users\WissamIKNOUN\AppData\Local\Microsoft\WindowsApps;D:\Logiciels\Microsoft VS Code\bin;, FPS_BROWSER_USER_PROFILE_STRING=Default, PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC, DriverData=C:\Windows\System32\Drivers\DriverData, OS=Windows_NT, COMPUTERNAME=WISSAMIKNOUN, PROCESSOR_REVISION=9a03, CommonProgramW6432=C:\Program Files\Common Files, EFC_8404_1592913036=1, ComSpec=C:\Windows\system32\cmd.exe, ProgramData=C:\ProgramData, ProgramW6432=C:\Program Files, esp-idf=D:\Logiciels\Espressif\frameworks\esp-idf-v5.3.1, HOMEPATH=\Users\WissamIKNOUN, SystemRoot=C:\Windows, TEMP=C:\Users\WISSAM~1\AppData\Local\Temp, HOMEDRIVE=C:, PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 154 Stepping 3, GenuineIntel, USERPROFILE=C:\Users\WissamIKNOUN, TMP=C:\Users\WISSAM~1\AppData\Local\Temp, CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files, ProgramFiles=C:\Program Files, PUBLIC=C:\Users\Public, EFC_8404_2283032206=1, EFC_8404_3789132940=1, NUMBER_OF_PROCESSORS=16, windir=C:\Windows, EFC_8404_2775293581=1, =::=::\, EFC_8404_1262719628=1}

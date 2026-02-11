@@ -12,7 +12,7 @@ int in21 = 26;
 
 // Moteur 2
 int in31 = 25;
-int in41 = 23;
+int in41 = 33;
 int enB1 = 32;
 
 // Moteur 4
