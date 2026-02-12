@@ -1,36 +1,40 @@
 #include <Arduino.h>
 #include <Bluepad32.h>
 
-// === MOTEURS ===
+// =====================
+// === CONFIG MOTEURS ===
+// =====================
 
-// Moteur 1
+// Driver 1
 int enA1 = 14;
 int in11 = 27;
 int in21 = 26;
 
-// Moteur 2
 int in31 = 25;
-int in41 = 23;
+int in41 = 33;
 int enB1 = 32;
 
-// Moteur 4
+// Driver 2
 int enA2 = 21;
 int in12 = 19;
 int in22 = 18;
 
-// Moteur 3
 int in32 = 5;
 int in42 = 17;
 int enB2 = 16;
 
+// =====================
 // === PARAMÈTRES ===
+// =====================
 bool turboMode = false;
-int vitesseNormale = 125;
+int vitesseNormale = 180;
 int vitesseTurbo = 255;
 
-// === Bluepad32 ===
 ControllerPtr myController;
 
+// =====================
+// === BLUETOOTH ===
+// =====================
 void onConnectedController(ControllerPtr ctl) {
   Serial.println("🎮 Contrôleur connecté !");
   myController = ctl;
@@ -41,100 +45,117 @@ void onDisconnectedController(ControllerPtr ctl) {
   myController = nullptr;
 }
 
-// === MOTEUR FONCTIONS ===
+// =====================
+// === FONCTIONS MOTEURS
+// =====================
+void setMotor(int in1, int in2, int channel, int speed) {
+  if (speed > 0) {
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
+    ledcWrite(channel, speed);
+  } else if (speed < 0) {
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+    ledcWrite(channel, abs(speed));
+  } else {
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, LOW);
+    ledcWrite(channel, 0);
+  }
+}
+
+void setLeftMotors(int speed) {
+  setMotor(in11, in21, 1, speed);
+  setMotor(in32, in42, 4, speed);
+}
+
+void setRightMotors(int speed) {
+  setMotor(in31, in41, 2, speed);
+  setMotor(in12, in22, 3, speed);
+}
+
 void stopCar() {
-  // Arrête tous les moteurs
-  digitalWrite(in11, LOW); digitalWrite(in21, LOW);
-  digitalWrite(in31, LOW); digitalWrite(in41, LOW);
-  digitalWrite(in12, LOW); digitalWrite(in22, LOW);
-  digitalWrite(in32, LOW); digitalWrite(in42, LOW);
-
-  ledcWrite(1, 0); ledcWrite(2, 0); ledcWrite(3, 0); ledcWrite(4, 0);
+  setLeftMotors(0);
+  setRightMotors(0);
 }
 
-void avancer(int vitesse) {
-  // Driver 1
-  digitalWrite(in11, HIGH); digitalWrite(in21, LOW);
-  digitalWrite(in31, HIGH); digitalWrite(in41, LOW);
-  // Driver 2
-  digitalWrite(in12, HIGH); digitalWrite(in22, LOW);
-  digitalWrite(in32, HIGH); digitalWrite(in42, LOW);
-  ledcWrite(1, vitesse); ledcWrite(2, vitesse); ledcWrite(3, vitesse); ledcWrite(4, vitesse);
-}
-
-void reculer(int vitesse) {
-  // Driver 1
-  digitalWrite(in11, LOW); digitalWrite(in21, HIGH);
-  digitalWrite(in31, LOW); digitalWrite(in41, HIGH);
-  // Driver 2
-  digitalWrite(in12, LOW); digitalWrite(in22, HIGH);
-  digitalWrite(in32, LOW); digitalWrite(in42, HIGH);
-  ledcWrite(1, vitesse); ledcWrite(2, vitesse); ledcWrite(3, vitesse); ledcWrite(4, vitesse);
-}
-
-void gauche(int vitesse) {
-  // Moteurs gauche reculent
-  digitalWrite(in11, LOW); digitalWrite(in21, HIGH);
-  digitalWrite(in32, LOW); digitalWrite(in42, HIGH);
-  // Moteurs droite avancent
-  digitalWrite(in12, HIGH); digitalWrite(in22, LOW);
-  digitalWrite(in31, HIGH); digitalWrite(in41, LOW);
-  ledcWrite(1, vitesse); ledcWrite(2, vitesse); ledcWrite(3, vitesse); ledcWrite(4, vitesse);
-}
-
-void droite(int vitesse) {
-  // Moteurs gauche avancent
-  digitalWrite(in11, HIGH); digitalWrite(in21, LOW);
-  digitalWrite(in32, HIGH); digitalWrite(in42, LOW);
-  // Moteurs droite reculent
-  digitalWrite(in12, LOW); digitalWrite(in22, HIGH);
-  digitalWrite(in31, LOW); digitalWrite(in41, HIGH);
-  ledcWrite(1, vitesse); ledcWrite(2, vitesse); ledcWrite(3, vitesse); ledcWrite(4, vitesse);
-}
-
+// =====================
 // === SETUP ===
+// =====================
 void setup() {
   Serial.begin(115200);
+
   BP32.setup(&onConnectedController, &onDisconnectedController);
-  BP32.forgetBluetoothKeys(); // Efface anciens appairages
+  BP32.forgetBluetoothKeys();
 
-  // Configurer les pins moteurs
-  pinMode(enA1, OUTPUT); pinMode(in11, OUTPUT); pinMode(in21, OUTPUT);
-  pinMode(enB1, OUTPUT); pinMode(in31, OUTPUT); pinMode(in41, OUTPUT);
-  pinMode(enA2, OUTPUT); pinMode(in12, OUTPUT); pinMode(in22, OUTPUT);
-  pinMode(enB2, OUTPUT); pinMode(in32, OUTPUT); pinMode(in42, OUTPUT);
+  // Pins
+  pinMode(in11, OUTPUT); pinMode(in21, OUTPUT);
+  pinMode(in31, OUTPUT); pinMode(in41, OUTPUT);
+  pinMode(in12, OUTPUT); pinMode(in22, OUTPUT);
+  pinMode(in32, OUTPUT); pinMode(in42, OUTPUT);
 
-  // PWM
-  ledcAttachPin(enA1, 1); ledcSetup(1, 1000, 8);
-  ledcAttachPin(enB1, 2); ledcSetup(2, 1000, 8);
-  ledcAttachPin(enA2, 3); ledcSetup(3, 1000, 8);
-  ledcAttachPin(enB2, 4); ledcSetup(4, 1000, 8);
+  // PWM Setup (IMPORTANT: setup avant attach)
+  ledcSetup(1, 1000, 8);
+  ledcSetup(2, 1000, 8);
+  ledcSetup(3, 1000, 8);
+  ledcSetup(4, 1000, 8);
+
+  ledcAttachPin(enA1, 1);
+  ledcAttachPin(enB1, 2);
+  ledcAttachPin(enA2, 3);
+  ledcAttachPin(enB2, 4);
 
   stopCar();
-  Serial.println("Prêt à se connecter à une manette Xbox !");
+
+  Serial.println("🚗 Prêt à se connecter à une manette Xbox !");
 }
 
+// =====================
 // === LOOP ===
+// =====================
 void loop() {
   BP32.update();
 
   if (myController && myController->isConnected()) {
-    int ly = myController->axisY();  // Joystick gauche vertical
-    int lx = myController->axisX();  // Joystick gauche horizontal
 
-    bool boutonA = myController->a(); // Bouton A active turbo
+    int ly = myController->axisY();  // -512 à 512
+    int lx = myController->axisX();  // -512 à 512
 
-    // Gestion turbo
+    bool boutonA = myController->a();
     turboMode = boutonA;
-    int vitesse = turboMode ? vitesseTurbo : vitesseNormale;
 
-    // Déplacement selon joystick
-    if (ly < -10000) avancer(vitesse);
-    else if (ly > 10000) reculer(vitesse);
-    else if (lx < -10000) gauche(vitesse);
-    else if (lx > 10000) droite(vitesse);
-    else stopCar();
+    int maxSpeed = turboMode ? vitesseTurbo : vitesseNormale;
+
+    // ===== Dead Zone =====
+    if (abs(ly) < 40) ly = 0;
+    if (abs(lx) < 40) lx = 0;
+
+    // ===== Mixage différentiel =====
+    int left = ly + lx;
+    int right = ly - lx;
+
+    // Limiter plage joystick
+    left = constrain(left, -512, 512);
+    right = constrain(right, -512, 512);
+
+    // Conversion vers PWM
+    left = map(left, -512, 512, -maxSpeed, maxSpeed);
+    right = map(right, -512, 512, -maxSpeed, maxSpeed);
+
+    // Debug optionnel
+    /*
+    Serial.print("Left: ");
+    Serial.print(left);
+    Serial.print(" | Right: ");
+    Serial.println(right);
+    */
+
+    setLeftMotors(left);
+    setRightMotors(right);
+  }
+  else {
+    stopCar();
   }
 
-  delay(20);
+  delay(10);
 }
