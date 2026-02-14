@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "BluetoothSerial.h"
+#include <ESP32Servo.h>
 
 BluetoothSerial SerialBT;
 
@@ -8,16 +9,15 @@ struct Motor {
   int en, in1, in2, pwmChannel;
 };
 
-Motor moteurs[4] = {
-  {14, 27, 26, 1},  // moteur 1
-  {32, 25, 33, 2},  // moteur 2
-  {16, 5, 17, 4},   // moteur 3
-  {21, 19, 18, 3}   // moteur 4
+Motor moteurs[2] = {
+  {16, 5, 17, 1},   // moteur gauche
+  {21, 19, 18, 2}   // moteur droit
 };
 
 // vitesses
+int x, y;
 bool turboMode = false;
-int vitesseNormale = 125;
+int vitesseNormale = map(abs(y), 0, 100, 0, 125);
 int vitesseTurbo = 255;
 
 // Commande Bluetooth
@@ -42,19 +42,11 @@ void driveMotor(Motor m, bool forward, int speed) {
 
 // Stop tous les moteurs
 void stopCar() {
-  for (int i=0; i<4; i++) {
+  for (int i=0; i<2; i++) {
     digitalWrite(moteurs[i].in1, LOW);
     digitalWrite(moteurs[i].in2, LOW);
     ledcWrite(moteurs[i].pwmChannel, 0);
   }
-}
-
-void setup() {
-  Serial.begin(115200);
-  SerialBT.begin("ESP32-Car");
-  Serial.println("Bluetooth prêt !");
-  
-  for (int i=0; i<4; i++) setupMotor(moteurs[i]);
 }
 
 int getSpeed() {
@@ -63,46 +55,63 @@ int getSpeed() {
 
 // Fonctions déplacement
 void avancer() {
-  for (int i=0; i<4; i++) driveMotor(moteurs[i], true, getSpeed());
+  for (int i=0; i<2; i++) driveMotor(moteurs[i], true, getSpeed());
 }
 
 void reculer() {
-  for (int i=0; i<4; i++) driveMotor(moteurs[i], false, getSpeed());
+  for (int i=0; i<2; i++) driveMotor(moteurs[i], false, getSpeed());
 }
 
-void gauche() {
-  // gauche recule, droite avance
-  driveMotor(moteurs[0], false, getSpeed());
-  driveMotor(moteurs[2], false, getSpeed());
-  driveMotor(moteurs[1], true, getSpeed());
-  driveMotor(moteurs[3], true, getSpeed());
-}
+//servomotor
 
-void droite() {
-  driveMotor(moteurs[0], true, getSpeed());
-  driveMotor(moteurs[2], true, getSpeed());
-  driveMotor(moteurs[1], false, getSpeed());
-  driveMotor(moteurs[3], false, getSpeed());
+Servo myservo;  // create Servo object to control a servo
+
+void setup() {
+  Serial.begin(115200);
+  SerialBT.begin("ESP32-Car");
+  Serial.println("Bluetooth prêt !");
+
+  myservo.attach(9);
+  
+  for (int i=0; i<2; i++) setupMotor(moteurs[i]);
 }
 
 void loop() {
+  // ===== BLUETOOTH COMMANDES =====
   while (SerialBT.available()) {
+
     char c = SerialBT.read();
+
     if (c == '\n' || c == '\r') {
+
       cmd.trim();
       Serial.println("Commande reçue : " + cmd);
 
-      if (cmd == "avant") avancer();
-      else if (cmd == "arriere") reculer();
-      else if (cmd == "gauche") gauche();
-      else if (cmd == "droite") droite();
-      else if (cmd == "stop") stopCar();
-      else if (cmd == "turbo_on") turboMode = true;
-      else if (cmd == "turbo_off") turboMode = false;
+      if (cmd.startsWith("J")) {
+        
+        sscanf(cmd.c_str(), "J,%d,%d", &x, &y);
 
+        //direction
+        int angle = map(x, -100, 100, 0, 180);
+        myservo.write(angle);
+        Serial.println(angle);
+
+        //vitesse
+        if (y > 10) {
+          avancer();
+        }
+        else if (y < -10) {
+          reculer();
+        }
+        else {
+          stopCar();
+        }
+      }
       cmd = "";
-    } else {
+    }
+    else {
       cmd += c;
     }
   }
+  delay(10);
 }
