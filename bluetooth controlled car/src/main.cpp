@@ -71,7 +71,7 @@ void setup() {
   SerialBT.begin("ESP32-Car");
   Serial.println("Bluetooth prêt !");
 
-  myservo.attach(9);
+  myservo.attach(33);
   
   for (int i=0; i<2; i++) setupMotor(moteurs[i]);
 }
