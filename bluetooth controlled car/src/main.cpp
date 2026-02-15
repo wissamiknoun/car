@@ -1,9 +1,9 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
+
 #define REMOTEXY_MODE__ESP32CORE_BLE
 #define REMOTEXY_BLUETOOTH_NAME "ESP32-Car"
 #define REMOTEXY_ACCESS_PASSWORD ""
-
 
 #include <BLEDevice.h>
 #include <RemoteXY.h>
@@ -17,6 +17,7 @@ uint8_t RemoteXY_CONF[] =   // config joystick simple
 struct {
   int8_t joystick_1_x; // -100 → 100
   int8_t joystick_1_y;
+  uint8_t connect_flag;
 } RemoteXY;
 #pragma pack(pop)
 
@@ -94,6 +95,4 @@ void loop() {
   else {
     stopCar();
   }
-
-  delay(10);
 }
