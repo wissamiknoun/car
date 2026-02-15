@@ -1,117 +1,99 @@
 #include <Arduino.h>
-#include "BluetoothSerial.h"
 #include <ESP32Servo.h>
+#define REMOTEXY_MODE__ESP32CORE_BLE
+#define REMOTEXY_BLUETOOTH_NAME "ESP32-Car"
+#define REMOTEXY_ACCESS_PASSWORD ""
 
-BluetoothSerial SerialBT;
 
-// Moteurs
+#include <BLEDevice.h>
+#include <RemoteXY.h>
+
+/* -------- Interface RemoteXY -------- */
+#pragma pack(push, 1)
+uint8_t RemoteXY_CONF[] =   // config joystick simple
+{ 255,1,0,0,0,17,0,8,13,0,
+  5,0,10,10,80,80,1,26,31 };
+
+struct {
+  int8_t joystick_1_x; // -100 → 100
+  int8_t joystick_1_y;
+} RemoteXY;
+#pragma pack(pop)
+
+/* -------- MOTEURS -------- */
 struct Motor {
   int en, in1, in2, pwmChannel;
 };
 
 Motor moteurs[2] = {
-  {16, 5, 17, 1},   // moteur gauche
-  {21, 19, 18, 2}   // moteur droit
+  {16, 5, 17, 1},   // gauche
+  {21, 19, 18, 2}   // droit
 };
 
-// vitesses
-int x, y;
-bool turboMode = false;
-int vitesseNormale = map(abs(y), 0, 100, 0, 125);
-int vitesseTurbo = 255;
+Servo myservo;
 
-// Commande Bluetooth
-String cmd = "";
-
-// Setup moteurs
+/* -------- SETUP MOTEUR -------- */
 void setupMotor(Motor m) {
-  pinMode(m.en, OUTPUT);
   pinMode(m.in1, OUTPUT);
   pinMode(m.in2, OUTPUT);
+
   ledcAttachPin(m.en, m.pwmChannel);
   ledcSetup(m.pwmChannel, 1000, 8);
   ledcWrite(m.pwmChannel, 0);
 }
 
-// Contrôle moteur
 void driveMotor(Motor m, bool forward, int speed) {
   digitalWrite(m.in1, forward ? HIGH : LOW);
   digitalWrite(m.in2, forward ? LOW : HIGH);
   ledcWrite(m.pwmChannel, speed);
 }
 
-// Stop tous les moteurs
 void stopCar() {
-  for (int i=0; i<2; i++) {
+  for (int i=0;i<2;i++) {
     digitalWrite(moteurs[i].in1, LOW);
     digitalWrite(moteurs[i].in2, LOW);
     ledcWrite(moteurs[i].pwmChannel, 0);
   }
 }
 
-int getSpeed() {
-  return turboMode ? vitesseTurbo : vitesseNormale;
-}
-
-// Fonctions déplacement
-void avancer() {
-  for (int i=0; i<2; i++) driveMotor(moteurs[i], true, getSpeed());
-}
-
-void reculer() {
-  for (int i=0; i<2; i++) driveMotor(moteurs[i], false, getSpeed());
-}
-
-//servomotor
-
-Servo myservo;  // create Servo object to control a servo
-
+/* -------- SETUP -------- */
 void setup() {
   Serial.begin(115200);
-  SerialBT.begin("ESP32-Car");
-  Serial.println("Bluetooth prêt !");
+
+  RemoteXY_Init();
 
   myservo.attach(33);
-  
-  for (int i=0; i<2; i++) setupMotor(moteurs[i]);
+
+  for (int i=0;i<2;i++)
+    setupMotor(moteurs[i]);
 }
 
+/* -------- LOOP -------- */
 void loop() {
-  // ===== BLUETOOTH COMMANDES =====
-  while (SerialBT.available()) {
 
-    char c = SerialBT.read();
+  RemoteXY_Handler();
 
-    if (c == '\n' || c == '\r') {
+  int x = RemoteXY.joystick_1_x;
+  int y = RemoteXY.joystick_1_y;
 
-      cmd.trim();
-      Serial.println("Commande reçue : " + cmd);
+  // ===== SERVO DIRECTION =====
+  int angle = map(x, -100, 100, 0, 180);
+  myservo.write(angle);
 
-      if (cmd.startsWith("J")) {
-        
-        sscanf(cmd.c_str(), "J,%d,%d", &x, &y);
+  // ===== VITESSE =====
+  int speed = map(abs(y), 0, 100, 0, 255);
 
-        //direction
-        int angle = map(x, -100, 100, 0, 180);
-        myservo.write(angle);
-        Serial.println(angle);
-
-        //vitesse
-        if (y > 10) {
-          avancer();
-        }
-        else if (y < -10) {
-          reculer();
-        }
-        else {
-          stopCar();
-        }
-      }
-      cmd = "";
-    }
-    else {
-      cmd += c;
-    }
+  if (y > 10) {
+    for (int i=0;i<2;i++)
+      driveMotor(moteurs[i], true, speed);
   }
+  else if (y < -10) {
+    for (int i=0;i<2;i++)
+      driveMotor(moteurs[i], false, speed);
+  }
+  else {
+    stopCar();
+  }
+
   delay(10);
 }
