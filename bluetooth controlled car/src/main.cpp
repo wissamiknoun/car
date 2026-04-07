@@ -1,21 +1,23 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
-#define REMOTEXY_MODE__ESP32CORE_BLE
+// 🔵 CHANGE THIS LINE (BLE → Classic Bluetooth)
+#define REMOTEXY_MODE__ESP32CORE_BLUETOOTH
+
 #define REMOTEXY_BLUETOOTH_NAME "ESP32-Car"
 #define REMOTEXY_ACCESS_PASSWORD ""
 
-#include <BLEDevice.h>
+#include <BluetoothSerial.h>   // ✅ ADD THIS
 #include <RemoteXY.h>
 
 /* -------- Interface RemoteXY -------- */
 #pragma pack(push, 1)
-uint8_t RemoteXY_CONF[] =   // config joystick simple
+uint8_t RemoteXY_CONF[] =
 { 255,1,0,0,0,17,0,8,13,0,
   5,0,10,10,80,80,1,26,31 };
 
 struct {
-  int8_t joystick_1_x; // -100 → 100
+  int8_t joystick_1_x;
   int8_t joystick_1_y;
   uint8_t connect_flag;
 } RemoteXY;
@@ -27,8 +29,8 @@ struct Motor {
 };
 
 Motor moteurs[2] = {
-  {16, 5, 17, 1},   // gauche
-  {21, 19, 18, 2}   // droit
+  {16, 5, 17, 1},
+  {21, 19, 18, 2}
 };
 
 Servo myservo;
@@ -61,7 +63,7 @@ void stopCar() {
 void setup() {
   Serial.begin(115200);
 
-  RemoteXY_Init();
+  RemoteXY_Init();  // works with Classic now
 
   myservo.attach(33);
 
@@ -77,11 +79,11 @@ void loop() {
   int x = RemoteXY.joystick_1_x;
   int y = RemoteXY.joystick_1_y;
 
-  // ===== SERVO DIRECTION =====
+  // ===== SERVO =====
   int angle = map(x, -100, 100, 0, 180);
   myservo.write(angle);
 
-  // ===== VITESSE =====
+  // ===== SPEED =====
   int speed = map(abs(y), 0, 100, 0, 255);
 
   if (y > 10) {
